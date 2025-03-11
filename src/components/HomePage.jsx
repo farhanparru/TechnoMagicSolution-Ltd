@@ -13,7 +13,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-[rgb(252,252,252)]">
+    <div className="w-full min-h-screen bg-[rgb(234,230,230)]">
       {/* Hero Section */}
       <section className="flex justify-center">
         <section className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between px-10 py-20">
@@ -68,9 +68,11 @@ const HomePage = () => {
           </div>
         </section>
       </section>
+      <Model/>
      <Dmodel/>
      <Count/>
      <Card/>
+   
     </div>
   );
 };
