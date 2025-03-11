@@ -5,6 +5,7 @@ import "aos/dist/aos.css"; // You can also use <link> for styles
 import Model from "./Model";
 import Dmodel from "./Dmodel";
 import Count from "./Count";
+import Card from "./Card";
 
 const HomePage = () => {
   useEffect(() => {
@@ -69,6 +70,7 @@ const HomePage = () => {
       </section>
      <Dmodel/>
      <Count/>
+     <Card/>
     </div>
   );
 };

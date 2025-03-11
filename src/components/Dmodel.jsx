@@ -3,16 +3,16 @@ import sideLogo from '../assets/Image/image.png'
 const Dmodel = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-between bg-gray-100 px-6 lg:px-16 py-12">
-      {/* Left Side - Image Section */}
+   
       <div className="lg:w-1/2 flex justify-center">
         <img
-          src={sideLogo} // Replace with your actual image
+          src={sideLogo} 
           alt="Responsive Website Design"
           className="w-full max-w-md lg:max-w-xl"
         />
       </div>
 
-      {/* Right Side - Content Section */}
+      
       <div className="lg:w-1/2 text-center lg:text-left mt-8 lg:mt-0">
         <h2 className="text-red-600 font-bold text-xl md:text-2xl uppercase">
           #1 Website Design Agency in India

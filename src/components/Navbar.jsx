@@ -1,83 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FaFacebookF,
   FaTwitter,
-  FaLinkedinIn,
-  FaYoutube,
+  FaWhatsapp,
   FaInstagram,
   FaEnvelope,
   FaPhoneAlt,
 } from "react-icons/fa";
+import { MdArrowDropDown } from "react-icons/md";
 import logo from "../assets/Image/Technomagic Solutions Logo.jpg";
 
 const Navbar = () => {
+  const [dropdown, setDropdown] = useState(null);
+
+  const toggleDropdown = (menu) => {
+    setDropdown(dropdown === menu ? null : menu);
+  };
+
   return (
     <div className="w-full">
-      <div className="bg-black text-white text-sm py-2 px-4 flex justify-between items-center">
-        <div className="flex items-center space-x-4">
-          <a
-            href="mailto:info@diziglobalsolution.com"
-            className="flex items-center space-x-1 hover:text-gray-400  text-lg"
-          >
-            <FaEnvelope />
-            <span>Technomagic@solution.com</span>
+         <div className="bg-[#1e3a56] text-white text-sm py-2 px-6 flex justify-center items-center h-[50px]">
+      {/* Container with Center Alignment */}
+      <div className="flex justify-between items-center w-full max-w-7xl">
+        {/* Left Section */}
+        <div className="flex items-center space-x-6">
+          <a href="mailto:info@techffodils.com" className="flex items-center space-x-2 hover:text-gray-400 text-xl">
+            <FaEnvelope /> <span>TechnoMagic@Solutions.com</span>
           </a>
-          <span>|</span>
-          <a
-            href="tel:+918470079475"
-            className="flex items-center space-x-1 hover:text-gray-400  text-lg"
-          >
-            <FaPhoneAlt />
-            <span>+91-00000000</span>
+          <a href="tel:+919946345177" className="flex items-center space-x-2 hover:text-gray-400  text-xl">
+            <FaPhoneAlt /> <span>+91 000000000</span>
           </a>
-          <span>|</span>
-          <a
-            href="tel:+919076972091"
-            className="flex items-center space-x-1 hover:text-gray-400 text-lg"
-          >
-            <FaPhoneAlt />
-            <span>+91-0000000</span>
+          <a href="https://wa.me/919946345177" className="flex items-center space-x-2 hover:text-gray-400  text-xl">
+            <FaWhatsapp /> <span>+91 000000000</span>
           </a>
         </div>
 
-        <div className="flex space-x-3">
-          <a href="#" className="hover:text-gray-400 text-2xl">
-            <FaFacebookF />
-          </a>
-          <a href="#" className="hover:text-gray-400 text-2xl">
-            <FaTwitter />
-          </a>
-          <a href="#" className="hover:text-gray-400 text-2xl">
-            <FaLinkedinIn />
-          </a>
-          <a href="#" className="hover:text-gray-400 text-2xl">
-            <FaYoutube />
-          </a>
-          <a href="#" className="hover:text-gray-400 text-2xl">
-            <FaInstagram />
-          </a>
+        {/* Right Section */}
+        <div className="flex items-center space-x-6">
+          <span className="text-white font-semibold  text-xl">Let’s talk</span>
+          <span className="text-gray-400">|</span>
+          <div className="flex items-center space-x-4">
+            <span className="text-white font-semibold  text-xl">Follow Us :</span>
+            <a href="#" className="hover:text-gray-400  text-xl"><FaFacebookF /></a>
+            <a href="#" className="hover:text-gray-400 text-xl"><FaInstagram /></a>
+            <a href="#" className="hover:text-gray-400  text-xl"><FaTwitter /></a>
+          </div>
         </div>
       </div>
+    </div>
 
-      <nav className="bg-[rgb(156,157,176)] shadow-md px-6 py-3 flex justify-between items-center">
+      {/* Navbar */}
+      <nav className="bg-white shadow-md px-6 py-3 flex justify-between items-center">
         <div className="flex items-center">
-          <img
-            src={logo}
-            alt="Logo"
-            className="h-12 w-auto"
-            style={{ width: "100px", height: "100px" }}
-          />
+          <img src={logo} alt="Logo" className="h-12 w-auto" style={{width:"100px", height:"100px"}} />
         </div>
 
-        <ul className="hidden md:flex space-x-6 text-black text-base font-medium">
-          <li className="hover:text-gray-500 cursor-pointer">Home</li>
-          <li className="hover:text-gray-500 cursor-pointer">About Us</li>
-          <li className="hover:text-gray-500 cursor-pointer">Courses</li>
-          <li className="hover:text-orange-500 cursor-pointer">Services</li>
-          <li className="hover:text-gray-500 cursor-pointer">Software</li>
-          <li className="hover:text-gray-500 cursor-pointer">Certification</li>
-          <li className="hover:text-gray-500 cursor-pointer">Blog</li>
-          <li className="hover:text-gray-500 cursor-pointer">Contact Us</li>
+        <ul className="hidden md:flex space-x-6 text-black text-base font-medium relative">
+          <li className="hover:text-gray-500 cursor-pointer text-xl">Home</li>
+          
+          {/* Dropdown Example */}
+          <li className="relative">
+            <button onClick={() => toggleDropdown("company")} className="flex items-center hover:text-gray-500 text-xl">
+              Company <MdArrowDropDown />
+            </button>
+            {dropdown === "company" && (
+              <ul className="absolute bg-white shadow-md mt-2 py-2 w-40 text-black">
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">About Us</li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Our Team</li>
+              </ul>
+            )}
+          </li>
+
+          <li className="relative">
+            <button onClick={() => toggleDropdown("services")} className="flex items-center hover:text-gray-500 text-xl">
+              Services <MdArrowDropDown />
+            </button>
+            {dropdown === "services" && (
+              <ul className="absolute bg-white shadow-md mt-2 py-2 w-40 text-black">
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Web Development</li>
+                <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">SEO Optimization</li>
+              </ul>
+            )}
+          </li>
+
+          <li className="hover:text-gray-500 cursor-pointer text-xl">Products</li>
+          <li className="hover:text-gray-500 cursor-pointer text-xl">Contacts</li>
+          <li className="hover:text-gray-500 cursor-pointer text-xl">Blogs</li>
         </ul>
 
         <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md">
